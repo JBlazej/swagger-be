@@ -9,11 +9,13 @@ import path from 'path'
 import expressFileupload from 'express-fileupload'
 import { corsOptions } from './conf/cors'
 import {connectDB} from './models'
+import sslRedirect from 'heroku-ssl-redirect'
 
 const app = express()
 connectDB()
 
 app.use(cors(corsOptions))
+app.use(sslRedirect())
 app.use('/public', express.static(__dirname + '/public/'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -22,7 +24,6 @@ app.use(serveFavicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(expressFileupload())
 
 app.use(router)
-
 let shuttingDown = false
 
 app.get('/', (req, res) => {
