@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <!-- Tittle -->
+    <title>SwaggerREST</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="description" content="SpaceX">
+    <meta name=“robots“ content="index follow">
+    <meta name="keywords" content="HTML">
+    <meta name="author" content="MV">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Stylesheet -->
+    <link type="text/css" rel="stylesheet" href="index.css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Fonts awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+    <!-- HTML5 shiv -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  </head>
+  <!--                          ¯\_(ツ)_/¯                                   -->
+  <body>
+    <div id="toor">
+      <!-- SITE -->
+      <div class="site-wrapper">
+        <div class="site-container">
+          <div class="site-content">
+            <!-- MAIN -->
+            <main>
+                <section class="bigboy">
+                    <header class="header">
+                        <h1>Swagger REST API</h1>
+                    </header>
+                    <div class="api-table-wrapper">
+                        <h2>USER</h2>
+                        <table class="api-table" style="width:100%">
+                            <tr class="table-help">
+                                <th>Method</th>
+                                <th>Endpoint</th>
+                                <th>Body</th>
+                            </tr>
+                            <tr class="table-help">
+                                <th>POST</th>
+                                <th>/api/user/sign-up</th>
+                                <th>email, password</th>
+                            </tr>
+                            <tr class="table-help">
+                                <th>POST</th>
+                                <th>/api/user/sign-in</th>
+                                <th>email, password</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="api-table-wrapper">
+                        <h2>Tattoo</h2>
+                        <table class="api-table" style="width:100%">
+                            <tr class="table-help">
+                                <th>Method</th>
+                                <th>Endpoint</th>
+                                <th>Body</th>
+                            </tr>
+                            <tr class="table-help">
+                                <th>GET</th>
+                                <th>/api/tattoo/all</th>
+                                <th>nic</th>
+                            </tr>
+                            <tr class="table-help">
+                                <th>GET</th>
+                                <th>/api/tattoo/:album</th>
+                                <th>nic</th>
+                            </tr>
+                            <tr class="table-help">
+                                <th>GET</th>
+                                <th>/api/tattoo/:album/:name</th>
+                                <th>nic</th>
+                            </tr>
+                            <tr class="table-help">
+                                <th>GET</th>
+                                <th>/api/tattoo/image/src/:name</th>
+                                <th>nic</th>
+                            </tr>
+                            <tr class="table-help">
+                                <th>POST</th>
+                                <th>/api/tattoo/save-record</th>
+                                <th>size, album, url</th>
+                            </tr>
+                            <tr class="table-help">
+                                <th>POST</th>
+                                <th>/api/tattoo/upload-image</th>
+                                <th>file</th>
+                            </tr>
+                            <tr class="table-help">
+                                <th>PUT</th>
+                                <th>/api/tattoo/modify/:name</th>
+                                <th>object</th>
+                            </tr>
+                            <tr class="table-help">
+                                <th>DELETE</th>
+                                <th>/api/tattoo/delete/:id</th>
+                                <th>id</th>
+                            </tr>
+                        </table>
+                    </div> 
+                </section>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
