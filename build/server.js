@@ -62,6 +62,8 @@ app.use((0, _cors2.default)(_cors3.corsOptions));
 app.use((0, _herokuSslRedirect2.default)());
 // PUBLIC
 app.use('/public', _express2.default.static(__dirname + '../public/'));
+// CSS
+app.use('/css', _express2.default.static(__dirname + '../css/'));
 // BODY
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));

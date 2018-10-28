@@ -3,7 +3,7 @@ import requireDir from 'require-dir'
 import {verifyJsonWebToken} from './services/auth'
 import path from 'path'
 
-const htmlPath = path.join(__dirname, '../public/page/', 'index.html')
+const htmlPath = path.join(__dirname, '../public/', 'index.html')
 
 const router = Router()
 const controllers = requireDir('./controllers')

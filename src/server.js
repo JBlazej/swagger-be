@@ -22,6 +22,8 @@ app.use(cors(corsOptions))
 app.use(sslRedirect())
 // PUBLIC
 app.use('/public', express.static(__dirname + '../public/'))
+// CSS
+app.use('/css', express.static(__dirname + '../css/'))
 // BODY
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
