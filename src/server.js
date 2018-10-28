@@ -1,5 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
+import 'babel-polyfill'
 import router from './router'
 import logger from './logger'
 import cors from 'cors'

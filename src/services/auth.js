@@ -6,7 +6,7 @@ export async function issueJsonWebToken (payload) {
   return jwt.sign(payload, secret, { expiresIn: 10800 })
 }
 
-export async function verifyJsonWebToken (req, res, next) {
+export async function verifyJsonWebToken (req, res) {
   if( req.hasOwnProperty('headers') && req.headers.hasOwnProperty('authorization') ) {
     try {
       req.user = jwt.verify(req.headers['authorization'], 'secret')
@@ -24,6 +24,6 @@ export async function verifyJsonWebToken (req, res, next) {
       }
     })
   }
-  next()
+ 
   return
 }
