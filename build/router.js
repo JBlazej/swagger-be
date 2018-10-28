@@ -45,12 +45,17 @@ router.get('/api/tattoo/:album', wrap(controllers.tattoo.tattooByAlbum));
 router.get('/api/tattoo/:album/:name', wrap(controllers.tattoo.tattooByAlbumAndName));
 router.get('/api/tattoo/image/src/:name', wrap(controllers.tattoo.tattooFindImage));
 
-router.post('/api/tattoo/save-record', wrap(controllers.tattoo.tattooCreate));
-router.post('/api/tattoo/upload-image', wrap(controllers.tattoo.tattooUploadNewImage));
+router.post('/api/tattoo/create/record', wrap(controllers.tattoo.tattooCreate));
+router.post('/api/tattoo/upload/image', wrap(controllers.tattoo.tattooUploadNewImage));
 
 router.put('/api/tattoo/modify/:name', wrap(controllers.tattoo.tattooModifyByName));
 
 router.delete('/api/tattoo/delete/:id', wrap(controllers.tattoo.tattooDeleteById));
+
+// SUBSCRIBER
+router.get('/api/subscriber/all', wrap(controllers.subscriber.subsAll));
+
+router.post('/api/subscriber/create/record', wrap(controllers.subscriber.subsCreate));
 
 // CSS
 router.get('/css', function (req, res) {
