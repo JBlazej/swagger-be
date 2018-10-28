@@ -3,9 +3,9 @@ import mongoose from 'mongoose'
 let db
 
 function getMongoUrl () {
-  const url = 'ds123181.mlab.com:23181/heroku_l2c53rhf'
-  const user = 'heroku_l2c53rhf'
-  const pass = '7hkctfmjj5gv6kodp6g50fhsso'
+  const url = 'ds143593.mlab.com:43593/heroku_w4lj9scn'
+  const user = 'swagger'
+  const pass = 'abc1234567'
 
   return `mongodb://${user}:${pass}@${url}`
 }
@@ -13,8 +13,8 @@ function getMongoUrl () {
 export async function connectDB () {
   const url = getMongoUrl()
   try{
-    db = await mongoose.connect(url)
-    console.log('DB connection OK')
+    db = await mongoose.connect(url, { useNewUrlParser: true })
+    console.log('  DB connection OK')
   } catch(error){
     console.log(error)
   }

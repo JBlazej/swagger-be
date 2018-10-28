@@ -8,32 +8,35 @@ import serveFavicon from 'serve-favicon'
 import path from 'path'
 import expressFileupload from 'express-fileupload'
 import { corsOptions } from './conf/cors'
-import {connectDB} from './models'
+import { connectDB } from './models'
 import sslRedirect from 'heroku-ssl-redirect'
 
+// EXPRESS JS
 const app = express()
+// DB
 connectDB()
-
+// CORS
 app.use(cors(corsOptions))
+// SSL
 app.use(sslRedirect())
-app.use('/public', express.static(__dirname + '/public/'))
+// PUBLIC
+app.use('/public', express.static(__dirname + '../public/'))
+// BODY
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+// COOKIE
 app.use(cookieParser())
-app.use(serveFavicon(path.join(__dirname, 'public', 'favicon.ico')))
+// FAV
+app.use(serveFavicon(path.join(__dirname, '../public', 'favicon.ico')))
+// FILES
 app.use(expressFileupload())
-
+// ROUTER
 app.use(router)
-let shuttingDown = false
-
-app.get('/', (req, res) => {
-  res.status(200).json({ Server: "Status OK" })
-})
-
+// PORT
 app.set('port', (process.env.PORT || 3000))
-app.listen(app.get('port'), () => {
-  console.log('App running on port ', app.get('port'))
-})
+
+// HANDLINGS ERRORS
+let shuttingDown = false
 
 app.use((req, res, next) => {
   if (!shuttingDown) return next()

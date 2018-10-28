@@ -1,14 +1,15 @@
 import mongoose from 'mongoose'
 import {getDB} from '..'
 
-// SCHEMA
+// USERS SCHEMA
 // -----------------------------------------------------------------------------
 const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
     trim: true,
-    lowercase: true
+    lowercase: true,
+    required: true
   },
   password: {
     type: String,
@@ -22,7 +23,6 @@ const UserSchema = new mongoose.Schema({
 
 // METHODS
 // -----------------------------------------------------------------------------
-
 export async function getUserAll () {
   const user = await getDB().model('User', UserSchema).find({})
 
@@ -35,107 +35,17 @@ export async function getUserById (id) {
   return user
 }
 
-/*
-exports.signIn = (req, res) => {
-  User.findOne({email: req.body.email}, (error, user) => {
-    if (user === null || !isValidPassword(user, req.body.password)) {
-      return res.status(401).json({
-        error: {
-          msg: 'Unauthorized Access'
-        }
-      })
-    }
-
-    const JWTToken = jwt.sign({
-      email: user.email,
-      _id: user._id
-    },
-    'TadyJeSecret',
-    {
-      expiresIn: '3H',
-      algorithm: 'HS256'
-    })
-
-    res.status(200).json({
-      id: user._id,
-      email: user.email,
-      good: {
-        token: JWTToken
-      }
-    })
-  })
+export async function getUserByEmail (email) {
+  const user = await getDB().model('User', UserSchema).find({email: email})
+  
+  return user
 }
 
+export async function createNewUser (email, password) {
+  const User = await getDB().model('User', UserSchema)
+  const user = new User({email: email, password: password})
+  user.save()
 
-exports.signUp = (req, res) => {
-  const hash = createHash(req.body.password)
-  const user = new User({
-    email: req.body.email,
-    password: hash
-  })
+  return user
 
-  user.save((err) => {
-    if (err)
-    return res.status(500).json({
-      error: {
-        msg: 'Not saved'
-      }
-    })
-
-    res.status(201).json({
-      good: {
-        msg: 'New user with email ' + user.email + ' was sign up'
-      }
-    })
-  })
 }
-
-exports.updateUserPassword = (req, res) => {
-  if (req.body.password === "" ) {
-    return res.status(401).json({
-      error: {
-        msg: 'No passwd send'
-      }
-    })
-  } else {
-    const hash = createHash(req.body.password)
-    User.findOneAndUpdate({_id: req.params.id}, { password: hash }, (err, p) => {
-      if (err) {
-        return res.status(500).json({
-          error: {
-            msg: 'User not found (_id)'
-          }
-        })
-      }
-    res.status(200).send(p)
-    })
-  }
-}
-
-
-exports.deleteUser = (req, res) => {
-  User.findOneAndRemove({_id: req.params.id }, (err, p) => {
-    if (err)
-    return res.status(500).json({
-      error: {
-        msg: 'User not found (_id)'
-      }
-    })
-
-    res.status(201).json({
-      good: {
-        msg: 'User ' + p.email + ' was deleted'
-      }
-    })
-  })
-}
-
-function isValidPassword(user, password){
-  return Bcrypt.compareSync(password, user.password);
-}
-
-function createHash(password){
-  return Bcrypt.hashSync(password, Bcrypt.genSaltSync(10), null);
-}
-
-*/
