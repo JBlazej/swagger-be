@@ -1,6 +1,18 @@
-body {
-    background-color: black;
+body{
+    background-color white;
 }
-#toor {
-    background-color: red;
+#toor{
+    padding-left: 35px;
+}
+.api-table{
+    width: 40%;
+}
+.table-help-1 th{
+    text-align: left;
+    padding-bottom: 15px;
+    border-bottom: 1px solid black;
+}
+.table-help th{
+    text-align: left;
+    padding-bottom: 5px;
 }
