@@ -31,4 +31,7 @@ router.put('/api/tattoo/modify/:name', wrap(controllers.tattoo.tattooModifyByNam
 
 router.delete('/api/tattoo/delete/:id', wrap(controllers.tattoo.tattooDeleteById))
 
+// CSS
+router.get('/css', (req, res)=>{ res.sendFile('app.css', { root: path.join(__dirname, '../css') }) }) 
+
 export default router

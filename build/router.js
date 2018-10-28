@@ -52,5 +52,10 @@ router.put('/api/tattoo/modify/:name', wrap(controllers.tattoo.tattooModifyByNam
 
 router.delete('/api/tattoo/delete/:id', wrap(controllers.tattoo.tattooDeleteById));
 
+// CSS
+router.get('/css', function (req, res) {
+  res.sendFile('app.css', { root: _path2.default.join(__dirname, '../css') });
+});
+
 exports.default = router;
 //# sourceMappingURL=router.js.map
