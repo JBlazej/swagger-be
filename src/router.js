@@ -9,7 +9,7 @@ const controllers = requireDir('./controllers')
 const wrap = fn => (...args) => fn(...args).catch(args[2])
 
 // HOME
-router.get('/', (req, res) => { res.status(200).json({ Server: "Status OK" })})
+router.get('/', (req, res) => { res.sendFile(__dirname + '/page/index.html')})
 
 // USER
 router.post('/api/user/sign-up', verifyJsonWebToken, wrap(controllers.user.userCreate))

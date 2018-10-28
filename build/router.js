@@ -26,7 +26,7 @@ var wrap = function wrap(fn) {
 
 // HOME
 router.get('/', function (req, res) {
-  res.status(200).json({ Server: "Status OK" });
+  res.sendFile(__dirname + '/page/index.html');
 });
 
 // USER
