@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/conf/cors.js"],"names":["corsOptions"],"mappings":";;;;;AAAO,IAAMA,oCAAc;AACvB,cAAU,GADa;AAEvB,eAAW,gCAFY;AAGvB,yBAAqB;AAHE,CAApB","file":"cors.js","sourcesContent":["export const corsOptions = {\n    \"origin\": \"*\",\n    \"methods\": \"GET,HEAD,PUT,PATCH,POST,DELETE\",\n    \"preflightContinue\": false\n  }"]}
