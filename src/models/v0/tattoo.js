@@ -21,7 +21,8 @@ const TattooSchema = new mongoose.Schema({
   },
   image: {
     url: {
-      type: String
+      type: String,
+      required: true
     }
   },
   created: {

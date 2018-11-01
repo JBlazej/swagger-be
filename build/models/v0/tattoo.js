@@ -204,7 +204,8 @@ var TattooSchema = new _mongoose2.default.Schema({
   },
   image: {
     url: {
-      type: String
+      type: String,
+      required: true
     }
   },
   created: {

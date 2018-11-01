@@ -11,11 +11,14 @@ import expressFileupload from 'express-fileupload'
 import { corsOptions } from './conf/cors'
 import { connectDB } from './models'
 import sslRedirect from 'heroku-ssl-redirect'
+import { wakeUpServer } from './services/wake'
 
 // EXPRESS JS
 const app = express()
 // DB
 connectDB()
+// CRON HEROKU 
+wakeUpServer()
 // CORS
 app.use(cors(corsOptions))
 // SSL

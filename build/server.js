@@ -50,12 +50,15 @@ var _herokuSslRedirect = require('heroku-ssl-redirect');
 
 var _herokuSslRedirect2 = _interopRequireDefault(_herokuSslRedirect);
 
+var _wake = require('./services/wake');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // EXPRESS JS
 var app = (0, _express2.default)();
 // DB
 (0, _models.connectDB)();
+(0, _wake.wakeUpServer)();
 // CORS
 app.use((0, _cors2.default)(_cors3.corsOptions));
 // SSL
