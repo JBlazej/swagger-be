@@ -1,9 +1,6 @@
 import {Router} from 'express'
 import requireDir from 'require-dir'
 import {verifyJsonWebToken} from './services/auth'
-import path from 'path'
-
-const htmlPath = path.join(__dirname, '../public/', 'index.html')
 
 const router = Router()
 const controllers = requireDir('./controllers')
@@ -12,7 +9,7 @@ const controllers = requireDir('./controllers')
 const wrap = fn => (...args) => fn(...args).catch(args[2])
 
 // HOME
-router.get('/', (req, res) => { res.sendFile(htmlPath) })
+router.get('/', (req, res) => { res.send('Alive') })
 
 // USER
 router.post('/api/user/sign-up', verifyJsonWebToken, wrap(controllers.user.userCreate))
@@ -35,8 +32,5 @@ router.delete('/api/tattoo/delete/:id', wrap(controllers.tattoo.tattooDeleteById
 router.get('/api/subscriber/all', wrap(controllers.subscriber.subsAll))
 
 router.post('/api/subscriber/create/record', wrap(controllers.subscriber.subsCreate))
-
-// CSS
-router.get('/css', (req, res)=>{ res.sendFile('app.css', { root: path.join(__dirname, '../css')}) }) 
 
 export default router

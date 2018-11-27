@@ -44,6 +44,7 @@ export async function tattooCreate (req, res){
     try{
         //const hop = {"size":"10x10", "album":"Tattoo", "image":{"url":"ahoj.jpg"}}
         const tattoo = await createNewTatttoo(req.body)
+        console.log(tattoo)
         res.status(200).json({good : 'Tattoo created'})
     }catch(error){
         res.status(400).json({error : 'Bad request'})

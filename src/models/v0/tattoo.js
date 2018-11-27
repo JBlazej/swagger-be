@@ -3,6 +3,8 @@ import {getDB} from '..'
 
 const tattooAlbums = ['tattoo', 'navrhy', 'flash']
 const tattooSizes = ['10x10', '15x15', '20x20']
+const imageSizes = ['small', 'big']
+
 
 // TATTTO SCHEMA
 // -----------------------------------------------------------------------------
@@ -23,11 +25,17 @@ const TattooSchema = new mongoose.Schema({
     url: {
       type: String,
       required: true
+    },
+    size: {
+      type: String,
+      enum: imageSizes,
+      required: true,
+      default: 'small'
     }
   },
   created: {
     type: Date,
-    default: Date.now
+    required: true
   }
 })
 

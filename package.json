@@ -25,6 +25,7 @@
     "express-fileupload": "^0.4.0",
     "heroku-ssl-redirect": "0.0.4",
     "jsonwebtoken": "^8.3.0",
+    "moment": "^2.22.2",
     "mongodb": "^3.1.4",
     "mongoose": "^5.2.12",
     "node-cron": "^2.0.3",

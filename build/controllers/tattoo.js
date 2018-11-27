@@ -152,22 +152,23 @@ var tattooCreate = exports.tattooCreate = function () {
                     case 3:
                         tattoo = _context4.sent;
 
+                        console.log(tattoo);
                         res.status(200).json({ good: 'Tattoo created' });
-                        _context4.next = 10;
+                        _context4.next = 11;
                         break;
 
-                    case 7:
-                        _context4.prev = 7;
+                    case 8:
+                        _context4.prev = 8;
                         _context4.t0 = _context4['catch'](0);
 
                         res.status(400).json({ error: 'Bad request' });
 
-                    case 10:
+                    case 11:
                     case 'end':
                         return _context4.stop();
                 }
             }
-        }, _callee4, this, [[0, 7]]);
+        }, _callee4, this, [[0, 8]]);
     }));
 
     return function tattooCreate(_x7, _x8) {

@@ -186,6 +186,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var tattooAlbums = ['tattoo', 'navrhy', 'flash'];
 var tattooSizes = ['10x10', '15x15', '20x20'];
+var imageSizes = ['small', 'big'];
 
 // TATTTO SCHEMA
 // -----------------------------------------------------------------------------
@@ -206,11 +207,17 @@ var TattooSchema = new _mongoose2.default.Schema({
     url: {
       type: String,
       required: true
+    },
+    size: {
+      type: String,
+      enum: imageSizes,
+      required: true,
+      default: 'small'
     }
   },
   created: {
     type: Date,
-    default: Date.now
+    required: true
   }
 });
 //# sourceMappingURL=tattoo.js.map

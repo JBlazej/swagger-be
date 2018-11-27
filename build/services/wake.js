@@ -11,7 +11,7 @@ var wakeUpServer = exports.wakeUpServer = function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _nodeCron2.default.schedule('*/1 * * * *', function () {
+            _nodeCron2.default.schedule('*/10 * * * *', function () {
               (0, _request2.default)('https://maxa-fabi.herokuapp.com', { json: false }, function (err, res) {
                 if (err) {
                   return console.log(err);

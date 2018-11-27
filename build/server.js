@@ -58,6 +58,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var app = (0, _express2.default)();
 // DB
 (0, _models.connectDB)();
+// CRON HEROKU 
 (0, _wake.wakeUpServer)();
 // CORS
 app.use((0, _cors2.default)(_cors3.corsOptions));
